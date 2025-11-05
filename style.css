@@ -41,24 +41,37 @@ body {
   color: var(--accent-color);
 }
 
-/* === Hero 區塊 === */
+/* Hero：整張圖當背景 */
 .hero {
-  text-align: center;
-  background: linear-gradient(135deg, #f4a261, #e76f51);
-  color: #fff;
-  padding: 60px 20px;
-  border-radius: 16px;
+  position: relative;
+  min-height: 320px;                  /* 視覺高度 */
+  padding: 60px 20px;                 /* 內距避免文字貼邊 */
+  border-radius: 0px;
   box-shadow: 0 3px 12px rgba(0,0,0,0.15);
-  flex: 1; /* 撐開主體空間 */
+  background-image: 
+    linear-gradient(                  /* 上方淡淡的漸層做遮罩，讓字清楚 */
+      rgba(0,0,0,0.25), 
+      rgba(0,0,0,0.25)
+    ),
+    url("hero.jpg");                  /* ← 換成你的圖片檔名 */
+  background-size: cover;             /* 充滿區塊、不變形 */
+  background-position: center;        /* 居中對齊 */
+  color: #fff;                        /* 讓文字變白 */
+  display: flex;                      /* 置中內容 */
+  align-items: center;                /* 垂直置中 */
+  justify-content: center;            /* 水平置中 */
+  text-align: center;                 /* 文字置中 */
 }
-.hero h1 {
-  color: #fff;
-  font-size: 2.2rem;
-  letter-spacing: 1px;
+
+/* 文字容器（可加一點陰影提升可讀性） */
+.hero__content h1 { 
+  margin: 0 0 8px;
+  font-size: 2rem;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.35);
 }
-.hero p {
-  font-size: 1.1rem;
-  margin: 12px 0 20px;
+.hero__content p {
+  margin: 0 0 16px;
+  text-shadow: 0 2px 6px rgba(0,0,0,0.3);
 }
 
 /* === 主容器 === */
